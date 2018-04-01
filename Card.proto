@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+message NewClient {
+  string name = 1;
+  int32 favoriteNumber = 2;
+};
+message Client {
+  string name = 1;
+  int32 clientID = 2;
+}
+message ClientResponse {
+  int32 clientID = 1;
+}
+
+message GetClients {
+  
+}
+message ClientList {
+  repeated Client clients = 1;
+}
+message PlayCard{}
+  message BoardState{}
+message ClientMessage {
+  oneof msg {
+    GetClients getClients = 1;
+    PlayCard playCard = 2;
+    
+  }
+}
+message ServerResponse{
+  oneof msg{
+    ClientList clientList = 1;
+    BoardState boardState = 2;
+  }
+}
+
